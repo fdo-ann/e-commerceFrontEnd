@@ -1,0 +1,87 @@
+
+/* Shared Card, Input, and Background Styles */
+.outer {
+  height: 100vh;
+  background: linear-gradient(to top, #e6e6f6 50%, #6e6ef6 90%);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.panel-body {
+  padding: 20px;
+}
+
+.input-field {
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #4343ff;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.input-field.error {
+  border: 1px solid red;
+  color: red;
+}
+
+.input-field input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.input-field button {
+  border: none;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+#forget {
+  text-decoration: none;
+  color: #4343ff;
+}
+
+.border-t {
+  border-top: 1px solid #ccc;
+  position: relative;
+}
+
+.border-t::after {
+  content: "or connect with";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 0 10px;
+  color: #777;
+  font-size: 12px;
+}
+
+.social-btn img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.social-btn img:hover {
+  transform: scale(1.1);
+}
+
+
+
