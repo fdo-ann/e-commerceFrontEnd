@@ -3,44 +3,46 @@
 
   <div class="card shadow p-4" style="width: 400px;">
 
-    <!-- Login Header -->
+  
     <div class="text-center mb-4">
       <h2 class="fw-bold">Login</h2>
       <p class="text-muted">Sign in to your account</p>
     </div>
 
-    <!-- Login Form -->
-    <form>
-
-      <!-- Email -->
+   
+    <form [formGroup]="loginForm">
       <div class="mb-3">
-        <label for="email" class="form-label">
-          Email Address
+        <label for="username" class="form-label">
+          Username
         </label>
 
-        <input
-          type="email"
-          id="email"
+        <input 
+          formControlName ="username"
+          type="text"
+          id="username"
           class="form-control"
-          placeholder="Enter your email"
+          placeholder="Enter your Username"
         />
+        <small style="margin-bottom: 25px;" class="text-danger" *ngIf="loginForm.controls['username'].dirty && loginForm.controls['username'].hasError('required')" >Username is Required</small>
       </div>
-
-      <!-- Password -->
+      
+      
       <div class="mb-3">
         <label for="password" class="form-label">
           Password
         </label>
 
         <input
+          formControlName ="password"
           type="password"
           id="password"
           class="form-control"
           placeholder="Enter your password"
         />
+        <small style="margin-bottom: 25px;" class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('required')" >Password is Required</small>
       </div>
 
-      <!-- Remember Me -->
+      
       <div class="d-flex justify-content-between align-items-center mb-4">
 
         <div class="form-check">
@@ -61,7 +63,7 @@
 
       </div>
 
-      <!-- Login Button -->
+    
       <div class="d-grid">
         <button
           type="submit"
@@ -70,7 +72,7 @@
         </button>
       </div>
 
-      <!-- Register -->
+  
       <div class="text-center mt-4">
         <span class="text-muted">Don't have an account?</span>
 
@@ -84,4 +86,4 @@
   </div>
 
 </div>
-```
+
