@@ -17,6 +17,7 @@
         </label>
 
         <input 
+          class ="class.error"
           formControlName ="username"
           type="text"
           id="username"
@@ -25,7 +26,6 @@
         />
         <small style="margin-bottom: 25px;" class="text-danger" *ngIf="loginForm.controls['username'].dirty && loginForm.controls['username'].hasError('required')" >Username is Required</small>
       </div>
-      
       
       <div class="mb-3">
         <label for="password" class="form-label">
@@ -65,7 +65,8 @@
 
     
       <div class="d-grid">
-        <button
+        <button 
+          (click)="onLogin()"
           type="submit"
           class="btn btn-primary btn-lg">
           Login

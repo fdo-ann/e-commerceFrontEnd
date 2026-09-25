@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -22,5 +22,24 @@ ngOnInit():void{
   });
 
 }
+
+onLogin():void{
+   if (this.loginForm.valid){
+    console.log(this.loginForm.value)
+   }else {
+    this.validateAllFormFields(this.loginForm);
+   }
+
+}
+
+private validateAllFormFields(formGroup: FormGroup): void {
+   Object.keys(formGroup.controls).forEach(field =>
+     { const control = formGroup.get(field); 
+      if (control instanceof FormControl) { 
+        control.markAsDirty({ onlySelf: true }); 
+      } else if (control instanceof FormGroup) { 
+        this.validateAllFormFields(control); } }); 
+  } 
+
 
 }
