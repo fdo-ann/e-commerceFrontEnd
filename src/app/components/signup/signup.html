@@ -10,7 +10,7 @@
     </div>
 
     <!-- Sign Up Form -->
-    <form>
+    <form [formGroup]="signUpForm">
 
       <!-- Full Name -->
       <div class="mb-3">
@@ -19,11 +19,13 @@
         </label>
 
         <input
+          formControlName="fullName"
           type="text"
           id="fullName"
           class="form-control"
           placeholder="Enter your full name"
         />
+        <small class="text-danger" *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.controls['fullName'].hasError('required')">Full Name is Required</small>
       </div>
 
       <!-- Email -->
@@ -33,11 +35,14 @@
         </label>
 
         <input
+          formControlName="email"
           type="email"
           id="email"
           class="form-control"
           placeholder="Enter your email"
         />
+         <small class="text-danger" *ngIf="signUpForm.controls['email'].dirty && signUpForm.controls['email'].hasError('required') ">Email is Required</small>
+        <small class="text-danger" *ngIf="signUpForm.controls['email'].dirty && signUpForm.controls['email'].hasError('email') ">Enter a valid Email</small>
       </div>
 
       <!-- Password -->
@@ -47,11 +52,13 @@
         </label>
 
         <input
+          formControlName="password"
           type="password"
           id="password"
           class="form-control"
           placeholder="Create a password"
         />
+        <small class="text-danger" *ngIf="signUpForm.controls['password'].dirty && signUpForm.controls['password'].hasError('required')">Password is Required</small>
       </div>
 
       <!-- Confirm Password -->
@@ -61,11 +68,13 @@
         </label>
 
         <input
+          formControlName ="confirmPassword"
           type="password"
           id="confirmPassword"
           class="form-control"
           placeholder="Confirm your password"
         />
+        <small class="text-danger" *ngIf="signUpForm.controls['confirmPassword'].dirty && signUpForm.controls['confirmPassword'].hasError('required')">Confirm Password is Required</small>
       </div>
 
       <!-- Terms -->
@@ -86,7 +95,7 @@
 
       <!-- Sign Up Button -->
       <div class="d-grid">
-        <button
+        <button (click)="onSignUp()"
           type="submit"
           class="btn btn-primary btn-lg">
           Sign Up
