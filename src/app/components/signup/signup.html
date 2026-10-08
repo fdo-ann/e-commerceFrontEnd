@@ -14,18 +14,49 @@
 
       <!-- Full Name -->
       <div class="mb-3">
-        <label for="fullName" class="form-label">
-          Full Name
+        <label for="firstName" class="form-label">
+          First Name
         </label>
 
         <input
-          formControlName="fullName"
+          formControlName="firstName"
           type="text"
-          id="fullName"
+          id="firstName"
           class="form-control"
-          placeholder="Enter your full name"
+          placeholder="Enter your first name"
         />
-        <small class="text-danger" *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.controls['fullName'].hasError('required')">Full Name is Required</small>
+        <small class="text-danger" *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.controls['firstName'].hasError('required')">First Name is Required</small>
+      </div>
+      
+         <!-- Last Name -->
+      <div class="mb-3">
+        <label for="lastName" class="form-label">
+          Last Name
+        </label>
+
+        <input
+          formControlName="lastName"
+          type="text"
+          id="lastName"
+          class="form-control"
+          placeholder="Enter your Last name"
+        />
+        <small class="text-danger" *ngIf="signUpForm.controls['lastName'].dirty && signUpForm.controls['lastName'].hasError('required')">Last Name is Required</small>
+      </div>
+         <!-- Last Name -->
+      <div class="mb-3">
+        <label for="username" class="form-label">
+          UserName
+        </label>
+
+        <input
+          formControlName="username"
+          type="text"
+          id="username"
+          class="form-control"
+          placeholder="Enter your Username"
+        />
+        <small class="text-danger" *ngIf="signUpForm.controls['username'].dirty && signUpForm.controls['username'].hasError('required')">Username is Required</small>
       </div>
 
       <!-- Email -->
@@ -62,7 +93,7 @@
       </div>
 
       <!-- Confirm Password -->
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label for="confirmPassword" class="form-label">
           Confirm Password
         </label>
@@ -75,7 +106,7 @@
           placeholder="Confirm your password"
         />
         <small class="text-danger" *ngIf="signUpForm.controls['confirmPassword'].dirty && signUpForm.controls['confirmPassword'].hasError('required')">Confirm Password is Required</small>
-      </div>
+      </div> -->
 
       <!-- Terms -->
       <div class="form-check mb-4">
