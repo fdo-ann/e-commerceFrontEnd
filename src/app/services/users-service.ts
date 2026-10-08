@@ -19,10 +19,10 @@ export class UsersService {
   }
 
   onSignUp(signUpObj:any):Observable<any>{
-    return this.http.post(`${this.baseUrl}`,signUpObj)
+    return this.http.post(`${this.baseUrl}register`,signUpObj)
   }
 
   onLogin(loginObj:any): Observable<any>{
-    return this.http.post<any>(`${this.baseUrl}`,loginObj)
+    return this.http.post(`${this.baseUrl}login`,loginObj)
   }
 }
