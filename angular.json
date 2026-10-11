@@ -27,7 +27,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-               "src/app/styles/css/common.css"
+               "src/app/styles/css/common.css",
+               "node_modules/ngx-toastr/toastr.css"
             ]
           },
           "configurations": {

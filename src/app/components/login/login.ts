@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users-service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class Login implements OnInit {
 
   loginForm!:FormGroup;
-  constructor( private fb:FormBuilder, private userService: UsersService, private router:Router){
+  constructor( private fb:FormBuilder, private userService: UsersService, private router:Router, private toaster :ToastrService){
 
   }
 
@@ -31,13 +32,15 @@ onLogin():void{
     console.log(this.loginForm.value)
     this.userService.onLogin(this.loginForm.value).subscribe({
       next:(res)=>{
-        alert(res.message);
+        //alert(res.message);
+        this.toaster.success(res.message);
         this.loginForm.reset();
         this.router.navigate(['dashboard']);
       },
       error:(err)=>{
         console.log("err",err);
-        alert(err?.error?.message || 'Something went wrong!');
+        //alert(err?.error?.message || 'Something went wrong!');
+        this.toaster.error(err?.error.message);
       }
     })
    }else {

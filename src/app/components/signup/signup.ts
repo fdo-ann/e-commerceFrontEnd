@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users-service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class Signup implements OnInit {
   
 
 signUpForm!: FormGroup;
-constructor(private fb:FormBuilder, private userService:UsersService, private router:Router ) {
+constructor(private fb:FormBuilder, private userService:UsersService, private router:Router,private toaster :ToastrService ) {
  
 }
 
@@ -40,12 +41,14 @@ constructor(private fb:FormBuilder, private userService:UsersService, private ro
       // })
       this.userService.onSignUp(this.signUpForm.value).subscribe({
         next:(res)=>{
-          alert(res.message);
+          //alert(res.message);
+         this.toaster.success(res.message);
           this.signUpForm.reset();
           this.router.navigate(['login']);
         },
         error:(err)=>{
-          alert(err?.error?.message || 'Something went wrong!');
+          //alert(err?.error?.message || 'Something went wrong!');
+          this.toaster.error(err?.error.message);
         }
       })
     }else{
