@@ -33,14 +33,15 @@ onLogin():void{
     this.userService.onLogin(this.loginForm.value).subscribe({
       next:(res)=>{
         //alert(res.message);
-        this.toaster.success(res.message);
+          console.log("res msg", res)
+        this.toaster.success(res.msg);
         this.loginForm.reset();
         this.router.navigate(['dashboard']);
       },
       error:(err)=>{
         console.log("err",err);
         //alert(err?.error?.message || 'Something went wrong!');
-        this.toaster.error(err?.error.message);
+        this.toaster.error(err?.error.msg);
       }
     })
    }else {
