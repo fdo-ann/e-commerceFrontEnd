@@ -28,7 +28,7 @@ export class UsersService {
   }
 
   setToken(tokenValue:string): void{
-    localStorage.setItem("token",tokenValue);
+    localStorage.setItem('token',tokenValue);
   }
 
   getToken():string | null{
@@ -43,5 +43,9 @@ export class UsersService {
     localStorage.clear();
     //localStorage.removeItem('token');
     this.router.navigate(['login']);
+  }
+
+  getAllUsers():Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}get-users`);
   }
 }

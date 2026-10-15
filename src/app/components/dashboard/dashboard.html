@@ -3,3 +3,8 @@
 <button type="button" class="btn btn-danger" (click)="signOut()">Sign Out</button>
 
 
+<ul *ngFor="let user of userList$ | async ;">
+    <li>{{user.username}}</li>
+</ul>
+
+
