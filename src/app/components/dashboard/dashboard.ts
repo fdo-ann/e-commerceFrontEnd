@@ -24,7 +24,7 @@ export class Dashboard implements OnInit {
   }
 
   ngOnInit(){
-     this.getAllUsers();
+     this.getAllUsers(); 
   }
 
   signOut(){
