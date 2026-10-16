@@ -10,7 +10,9 @@ export const authGuardGuard: CanActivateFn = (route, state) => {
   const toaster = inject(ToastrService)
   
   if(userService.isLoggedIn()){
+    console.log('token',)
     return true;
+    //console.log('')
   }else{
     toaster.error("Please Login First!");
     return router.createUrlTree(['/login']);

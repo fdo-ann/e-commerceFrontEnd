@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { tokenInterceptor } from './interceptors/token-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +14,9 @@ export const appConfig: ApplicationConfig = {
       timeOut: 3000,
       positionClass: 'toast-top-right',
       preventDuplicates: true
-    })
+    }),
+    provideHttpClient(
+      withInterceptors([tokenInterceptor])
+    )
   ]
 };

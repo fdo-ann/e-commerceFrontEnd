@@ -35,6 +35,7 @@ onLogin():void{
         //alert(res.message);
           console.log("res msg", res)
         this.toaster.success(res.msg);
+        this.userService.setToken(res.token)
         this.loginForm.reset();
         this.router.navigate(['dashboard']);
       },

@@ -36,6 +36,7 @@ export class UsersService {
   }
 
   isLoggedIn():boolean {
+    console.log('hi',localStorage.getItem('token'))
     return !!localStorage.getItem('token');
   }
 
