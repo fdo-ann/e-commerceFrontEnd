@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { UsersService } from '../../services/users-service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UserStore } from '../../services/user-store';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class Login implements OnInit {
 
   loginForm!:FormGroup;
-  constructor( private fb:FormBuilder, private userService: UsersService, private router:Router, private toaster :ToastrService){
+  constructor( private fb:FormBuilder, private userService: UsersService, private router:Router, private toaster :ToastrService, private userStore : UserStore){
 
   }
 
@@ -45,6 +46,9 @@ onLogin():void{
         this.toaster.error(err?.error.msg);
       },
       complete:()=>{
+        var decodedToken = this.userService.decodedToken()
+        this.userStore.setFullNameForStore(decodedToken.unique_name);
+        this.userStore.setRoleForStore(decodedToken.role)
         //var decodedToken = this.userService.decodedToken()
         //console.log('decoded token', decodedToken)
       }
