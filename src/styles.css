@@ -7,3 +7,20 @@ html, body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.navbar {
+  padding: 12px 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.nav-link.active {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.nav-link {
+  margin-right: 10px;
+}

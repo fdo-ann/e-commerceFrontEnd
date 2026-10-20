@@ -33,9 +33,9 @@ onLogin():void{
     this.userService.onLogin(this.loginForm.value).subscribe({
       next:(res)=>{
         //alert(res.message);
-          console.log("res msg", res)
+        console.log("res msg", res)
         this.toaster.success(res.msg);
-        this.userService.setToken(res.token)
+        this.userService.setToken(res.token);
         this.loginForm.reset();
         this.router.navigate(['dashboard']);
       },
@@ -43,6 +43,10 @@ onLogin():void{
         console.log("err",err);
         //alert(err?.error?.message || 'Something went wrong!');
         this.toaster.error(err?.error.msg);
+      },
+      complete:()=>{
+        //var decodedToken = this.userService.decodedToken()
+        //console.log('decoded token', decodedToken)
       }
     })
    }else {

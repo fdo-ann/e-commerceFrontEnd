@@ -3,10 +3,11 @@ import { UsersService } from '../../services/users-service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLinkActive, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -17,10 +18,11 @@ export class Dashboard implements OnInit {
    */
   userList:any[] =[]
   userList$: Observable<any[]>;
+  userName:any;
 
   constructor(private userService : UsersService,private toaster :ToastrService) {
     this.userList$ = this.userService.getAllUsers();
-    
+    this.userName = this.userService.getFullNameFromToken();
   }
 
   ngOnInit(){
